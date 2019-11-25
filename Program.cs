@@ -7,11 +7,18 @@ namespace ArrayTest
 {
     class Program
     {
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
+
+            //TODO: Take # of gb as an argument. Could do a select: if 1, a1, if 2, a2...
             int each = 2; // number of 2GB chunks
             // https://docBs.microsoft.com/en-us/dotnet/framework/configure-apps/file-schema/runtime/gcallowverylargeobjects-element
-            // The maximum index in any single dimension is 2,147,483,591 (0x7FFFFFC7) for byte arrays and arrays of single - byte structures, and 2, 146, 435, 071(0X7FEFFFFF) for other types.
+            // The maximum index in any single dimension is 2,147,483,591 (0x7FFFFFC7) for byte arrays and arrays of single - byte structures, and 2, 146, 435, 071(0X7FEFFFFF) for other types. *BUT* "The maximum number of elements in an array is UInt32.MaxValue."
             // Number of elements in the second dimension of the array will be close to 2GB
             ulong elements = 0x7FFFFFC7; // Int32.MaxValue - 56; // max must be a 55-byte overhead... 900; //zero-based
             Console.WriteLine("Using " + elements.ToString() + " vs " + Int32.MaxValue.ToString());
